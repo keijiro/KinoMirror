@@ -52,11 +52,11 @@ Shader "Hidden/Kino/Mirror"
         #endif
         phi += _Roll - _Offset;
 
-        // Reflection at the border of the screen.
-        r = min(r, 1.0 - r);
-
         // Convert back to the texture coordinate.
         float2 uv = float2(cos(phi), sin(phi)) * r + 0.5;
+
+        // Reflection at the border of the screen.
+        uv = min(uv, 2.0 - uv);
 
         return tex2D(_MainTex, uv);
     }
