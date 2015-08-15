@@ -56,7 +56,7 @@ Shader "Hidden/Kino/Mirror"
         float2 uv = float2(cos(phi), sin(phi)) * r + 0.5;
 
         // Reflection at the border of the screen.
-        uv = min(uv, 2.0 - uv);
+        uv = max(min(uv, 2.0 - uv), -uv);
 
         return tex2D(_MainTex, uv);
     }

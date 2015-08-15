@@ -65,8 +65,8 @@ namespace Kino
             var div = Mathf.PI * 2 / Mathf.Max(1, _repeat);
 
             _material.SetFloat("_Divisor", div);
-            _material.SetFloat("_Offset", _offset);
-            _material.SetFloat("_Roll", _roll);
+            _material.SetFloat("_Offset", _offset * Mathf.Deg2Rad);
+            _material.SetFloat("_Roll", _roll * Mathf.Deg2Rad);
 
             if (_symmetry)
                 _material.EnableKeyword("SYMMETRY_ON");
